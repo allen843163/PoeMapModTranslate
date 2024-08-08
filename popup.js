@@ -1,8 +1,6 @@
-var getSelectedTab = (tab) => {
-    var tabId = tab.id;
-    var sendMessage = (messageObj) => {
-        chrome.tabs.sendMessage(tabId, messageObj);
-    };
+var getSelectedTab = () => {
+    // var tabId = tab.id;
+    console.log(`getSelectedTab`);
     var doTranslate = (messageObj) => {
         var value = String(document.getElementById('input-mods').value);
 
@@ -47,20 +45,25 @@ var getSelectedTab = (tab) => {
             
             value = value.replace(value.toString().match(regex3)[0], '');
 
-            myMap.values.
             console.log("resultStr3 = " + regex3Result);
             console.log("resultStr3 = " + value);
         }
 
+        console.log("result = " +  regex1Result + " " + regex2Result + " " + regex3Result);
         document.getElementById('output-mods').innerHTML = regex1Result + " " + regex2Result + " " + regex3Result
+        
     };
     document.getElementById('rotate').addEventListener('click', 
         () => doTranslate({ action: 'ROTATE' })
     );
-    document.getElementById('reset').addEventListener('click', () => sendMessage({ action: 'RESET' }))
-  }
+  };
 
-  chrome.tabs.getSelected(null, getSelectedTab);
+  document.addEventListener('DOMContentLoaded', () => getSelectedTab())
+//   DOMContentLoaded
+//   chrome.addEventListener()
+
+//   chrome.runtime.on(backgroundPage => getSelectedTab);
+//   chrome.tabs.getSelected(null, getSelectedTab)
 
   const myMap = new Map([
     ["tal d", "射.+元"],

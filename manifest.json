@@ -1,26 +1,21 @@
 {
     "manifest_version": 3,
     "name": "POE詞綴RegexTw翻譯",
-    "description": "翻轉",
+    "description": "翻譯",
     "version": "1.0.0",
     "icons": {
       "16": "icon.png",
       "48": "icon.png",
       "128": "icon.png"
     },
-    "browser_action": {
-      "default_icon": "icon.png",
-      "default_popup": "popup.html"
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icon.png",
+            "48": "icon.png",
+            "128": "icon.png"
+        }
     },
     "permissions": [
-    ],
-    "content_scripts": [
-      {
-        "matches": [
-        ],
-        "js": [
-          "execute.js"
-        ]
-      }
     ]
   }
